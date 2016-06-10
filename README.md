@@ -14,4 +14,4 @@ It's an engine for creating terminal-based games in web browsers.
 
 ---
 
-### Find more at [TGE wiki](wiki)
+### Find more at [TGE wiki](../../wiki)
