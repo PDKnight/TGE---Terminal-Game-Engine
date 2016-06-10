@@ -14,4 +14,4 @@ It's an engine for creating terminal-based games in web browsers.
 
 ---
 
-### Find more at [TGE wiki](https://github.com/PDKnight/TGE---Terminal-Game-Engine/wiki)
+### Find more at [TGE wiki](wiki)
