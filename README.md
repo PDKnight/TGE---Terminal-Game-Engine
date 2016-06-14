@@ -3,6 +3,8 @@
 ## What is it?
 It's an engine for creating terminal-based games in web browsers.
 
+![TGE environment](http://image.prntscr.com/image/65d97d682731472099371468b18f09af.png)
+
 ## Instalation
 1. Download zipped (.zip) version of repository
 2. Put it somewhere on your server (It has to be on server due to maps, which are written in PHP because of protection)
