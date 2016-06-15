@@ -2,7 +2,8 @@
 $map = [
 	"text" => [
 		"",
-		"&6Welcome to this game! &rPlease type &f? or help &rfor further information! :)",
+		"&6Welcome to this game!",
+		"&rPlease type &f? or help &rfor further information! :)",
 		"Psst..try &fls &rcommand first :}",
 		"",
 		"------------------------",
@@ -17,10 +18,17 @@ $map = [
 		"The house is pretty old and nobody's around the place, only some tumbleweeds.",
 		"You can go to the old coal cave or to the hills."
 	],
+	"pick" => [
+		"Key"
+	],
 	"dirs" => [
 		"cave" => [
 			"text" => [
 				"You are at the cave now. Great... blabla"
+			],
+			"items" => [
+				"Key",
+				"Blue key"
 			],
 			"dirs" => [
 				"c" => [
