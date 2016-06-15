@@ -7,7 +7,7 @@ Function.prototype.bind=(function(){}).bind||function(b){if(typeof this!=="funct
 
 var TGE = function(environment, config, commands)
 {
-    this.version = '1.0.0';
+    this.version = '1.1';
     this.cmds = {
         history: [],
         count: 0,
@@ -290,13 +290,20 @@ var TGE = function(environment, config, commands)
         addEvent(input, 'keyup', setCmdLine);
 
 
-        XXHR().request(this.config.map + '?dir=home',
+        XXHR().request(this.config.map + this.getUrlPath(),
             function(r) {
-                var response = JSON.parse(r),
+                var response = JSON.parse(r.toString()),
                     type = response.type,
                     data = response.data,
                     dirData = data.dirs,
                     message = data.message;
+
+                if (data.hasOwnProperty('items')
+                        && !data.items)
+                {
+                    TGE.getInstance().log('&c[Error] You need an item to go there. Use "pick" command to pick an item.');
+                }
+
                 switch (type) {
                     case 'map':
                         if (data.hasOwnProperty('text')
@@ -336,6 +343,21 @@ var TGE = function(environment, config, commands)
     this.commands = commands;
     this.log = log;
     this.sel = sel;
+
+    this.items = [];
+    this.getUrlPath = function()
+    {
+        return '?dir='
+            + (TGE.path.path || 'home')
+            + '&items='
+            + this.items.join(',');
+    }.bind(this);
+
+    this.getUrlItems = function()
+    {
+        return '&items='
+            + this.items.join(',');
+    }.bind(this);
 
     init();
 
@@ -390,13 +412,21 @@ TGE.path = {
                     AJAXpathDir = AJAXpathDir.slice(1);
 
                 XXHR().request(mapPath + '?dir=' 
-                        + (AJAXpathDir || 'Home'),
+                        + (AJAXpathDir || 'Home')
+                        + TGE.getInstance().getUrlItems(),
                     function(r) {
-                        var response = JSON.parse(r),
+                        var response = JSON.parse(r.toString()),
                             type = response.type,
                             data = response.data,
                             dirData = data ? data.dirs : [],
                             message = data ? data.message : [];
+
+                        if (data.hasOwnProperty('items')
+                                && !data.items)
+                        {
+                            TGE.getInstance().log('&c[Error] You need an item to go there. Use "pick" command to pick an item.');
+                        }
+
                         switch (type) {
                             case 'map':
                                 if (data.hasOwnProperty('text')
@@ -439,13 +469,21 @@ TGE.path = {
                     AJAXpathDir = AJAXpathDir.slice(1);
 
                 XXHR().request(mapPath + '?dir=' 
-                        + (AJAXpathDir || 'Home'), 
+                        + (AJAXpathDir || 'Home')
+                        + TGE.getInstance().getUrlItems(), 
                     function(r) {
-                        var response = JSON.parse(r),
+                        var response = JSON.parse(r.toString()),
                             type = response.type,
                             data = response.data,
                             dirData = data ? data.dirs : [],
                             message = data ? data.message : [];
+
+                        if (data.hasOwnProperty('items')
+                                && !data.items)
+                        {
+                            TGE.getInstance().log('&c[Error] You need an item to go there. Use "pick" command to pick an item.');
+                        }
+
                         switch (type) {
                             case 'map':
                                 if (dirData.length > 0)
