@@ -9,7 +9,7 @@ It's an engine for creating fully customizable terminals in browser.
 1. Download zipped (.zip) version of repository
 2. Put it somewhere on your server (It has to be on server due to maps, which are written in PHP because of protection)
 3. Change your `example/assets/config.js` file
-4. Run index.html
+4. Run `example/index.html`
 5. That's it! :)
 
 ---
