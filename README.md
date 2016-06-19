@@ -1,4 +1,5 @@
 # WCE - Web Console Engine
+`v2.0`
 
 ## What is it?
 It's an engine for creating fully customizable terminals in browser.
