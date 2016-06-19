@@ -21,4 +21,6 @@ This engine is also designed for making terminal-based games. All you need to ma
 
 ---
 
+### [How to import and init WCE](https://github.com/PDKnight/WCE-Web-Console-Engine/wiki#how-to-import-and-init-wce)
+
 ### Find more at [WCE wiki](../../wiki)
