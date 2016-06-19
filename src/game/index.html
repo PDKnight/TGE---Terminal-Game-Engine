@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/WCE.css">
+	<meta charset="utf-8">
+</head>
+<body>
+
+<div id="wceenv"></div>
+
+<script>
+// Importer.js by PDKnight.
+// You can find more at https://github.com/PDKnight/Importer.js/tree/master/src
+var XXHR=function(){var t=[":(",":[","._.","(O.o)","d[O_O]b",";(",":'("],e="No XHR, no more fun.",n="The XHR failed",r=function(t){if("undefined"!=typeof XMLHttpRequest)return new XMLHttpRequest;if("undefined"!=typeof ActiveXObject){if("string"!=typeof arguments.callee.activeXString)for(var n=["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"],r=0,o=n.length;o>r;r++)try{var a=new ActiveXObject(n[r]);return arguments.callee.activeXString=n[r],a}catch(i){}return new ActiveXObject(arguments.callee.activeXString)}throw"function"==typeof t&&t(e),new Error(e)};return{request:function(e,o,a,i,s){if("string"!=typeof e)throw new Error("XXHR().response function requires at least 1 parameter (string).");var u=r(a),i=i||!0,c=s?"post":"get",s=s?s:null;u.onreadystatechange=function(){if(4==u.readyState){if(!(u.status>=200&&u.status<300||304==u.status)){var e=n+" "+t[Math.floor(Math.random()*t.length)]+" [status:"+u.status+"]";throw"function"==typeof a&&a(e,u.status),new Error(e)}var r=u.responseText;"function"==typeof o&&o(r)}},u.open(c,e,i),u.send(s)}}},Importer={version:"1.1",add:function(){if(0!=arguments.length){for(var t,e=!1,n=[],r=arguments.length-1;r>=0;r--)n.unshift(arguments[r]);var o=n[n.length-1],a=n[n.length-2];n.length>2&&"function"==typeof a&&"boolean"==typeof o?(t=a,e=o,n.splice(-2,2)):n.length>1&&"function"==typeof o?(t=o,n.splice(-1,1)):n.length>1&&"boolean"==typeof o&&(e=o,n.splice(-1,1)),0!=n.length&&this.loadScripts(n,0,t,[],e)}},loadScripts:function(t,e,n,r,o){return e==t.length?void("function"==typeof n&&n(r)):void XXHR().request(t[e],function(a){var i=document.createElement("script");o?i.innerHTML="try{"+a+"}catch(ex){}":i.innerHTML=a,document.body.appendChild(i),Importer.loadScripts(t,e+1,n,r,o)},function(a,i){r.push({file:t[e],message:a,status:i}),Importer.loadScripts(t,e+1,n,r,o)})}};
+</script>
+
+<script>
+Importer.add(
+	'assets/config.js',
+	'../WCE.js',
+	'assets/WCE-gameSettings.js',
+	'assets/WCE-commands.js',
+
+		function() {
+
+	WCE.createInstance('#wceenv', Config, Commands);
+
+		Importer.add(
+
+	'assets/WCE-listeners.js',
+
+			function() {
+
+	WCE.getInstance().init();
+
+		});
+});
+</script>
+</body>
+</html>
