@@ -8,8 +8,8 @@ It's an engine for creating fully customizable terminals in browser.
 
 ## Instalation
 1. Download zipped (.zip) version of repository
-2. Put it somewhere on your server (It has to be on server due to maps, which are written in PHP because of protection)
-3. Change your `example/assets/config.js` file
+2. If you want to run `game/index.html` file, put it somewhere on your server (It has to be on server due to maps, which are written in PHP because of protection); if you want to run `example/index.html` file, it doesn't matter.
+3. Change your configuration files
 4. Run `example/index.html`
 5. That's it! :)
 
